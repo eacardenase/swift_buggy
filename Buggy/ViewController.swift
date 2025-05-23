@@ -10,7 +10,10 @@ import UIKit
 class ViewController: UIViewController {
 
     var simpleButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(configuration: .filled())
+        
+        button.layer.cornerRadius = 8
+        button.layer.masksToBounds = true
         
         button.setTitle("Tap me!", for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
