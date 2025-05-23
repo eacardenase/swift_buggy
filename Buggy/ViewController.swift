@@ -46,6 +46,6 @@ class ViewController: UIViewController {
 
 extension ViewController {
     @objc func buttonTapped(_ sender: UIButton) {
-        print("DEBUG: called buttonTapped(_:)")
+        print("DEBUG: Method \(#function) in file \(#file) at line \(#line) was called.")
     }
 }
