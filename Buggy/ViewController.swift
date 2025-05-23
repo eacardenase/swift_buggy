@@ -9,12 +9,43 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var simpleButton: UIButton = {
+        let button = UIButton(type: .system)
+        
+        button.setTitle("Tap me!", for: .normal)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    override func loadView() {
+        view = UIView()
+        
+        view.backgroundColor = .white
+        
+        setupUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemRed
     }
 
-
+    func setupUI() {
+        view.addSubview(simpleButton)
+        
+        NSLayoutConstraint.activate([
+            simpleButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
+            simpleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
 }
 
+// MARK: - Actions
+
+extension ViewController {
+    @objc func buttonTapped(_ sender: UIButton) {
+        print("DEBUG: called buttonTapped(_:)")
+    }
+}
