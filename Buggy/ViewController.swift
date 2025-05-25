@@ -51,7 +51,7 @@ class ViewController: UIViewController {
             array.insert(i, at: i)
         }
         
-        for _ in 0...10 {
+        for _ in 0..<10 {
             array.removeObject(at: 0)
         }
     }
