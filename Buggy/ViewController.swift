@@ -43,6 +43,18 @@ class ViewController: UIViewController {
             simpleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
+    
+    func badMethod() {
+        let array = NSMutableArray()
+        
+        for i in 0..<10 {
+            array.insert(i, at: i)
+        }
+        
+        for _ in 0...10 {
+            array.removeObject(at: 0)
+        }
+    }
 }
 
 // MARK: - Actions
@@ -50,5 +62,7 @@ class ViewController: UIViewController {
 extension ViewController {
     @objc func buttonTapped(_ sender: UIButton) {
         print("DEBUG: Method \(#function) in file \(#file) at line \(#line) was called.")
+        
+        badMethod()
     }
 }
